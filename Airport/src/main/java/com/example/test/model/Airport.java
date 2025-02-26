@@ -1,8 +1,10 @@
 package com.example.test.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
 public class Airport {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
     private String name;
     private String city;
