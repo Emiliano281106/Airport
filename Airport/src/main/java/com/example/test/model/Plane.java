@@ -1,9 +1,9 @@
 package com.example.test.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Plane {
@@ -18,6 +18,11 @@ public class Plane {
     @ManyToOne
     @JoinColumn(name = "AIRPORT_FK")
     private Airport airport;
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "PLANE-PASSENGER",joinColumns = {@JoinColumn(name = "PLANE_FK")},
+    inverseJoinColumns = {@JoinColumn(name = "PASSENGER_FK")})
+    private List<Passenger> passengers;
 
 
     public Plane() {

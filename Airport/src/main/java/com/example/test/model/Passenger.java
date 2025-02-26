@@ -1,7 +1,8 @@
 package com.example.test.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Passenger {
@@ -12,6 +13,8 @@ public class Passenger {
     private String surname;
     private String DNI;
     private int age;
+    @ManyToMany(mappedBy = "passengers", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Plane> planes;
 
     public Passenger() {
     }
