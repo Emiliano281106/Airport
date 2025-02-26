@@ -2,6 +2,8 @@ package com.example.test.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Plane {
@@ -13,6 +15,9 @@ public class Plane {
     private int seats;
     private double maxSpeed;
     private int num;
+    @ManyToOne
+    @JoinColumn(name = "AIRPORT_FK")
+    private Airport airport;
 
 
     public Plane() {
