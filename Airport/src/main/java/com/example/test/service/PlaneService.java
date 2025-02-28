@@ -33,4 +33,9 @@ public class PlaneService {
 
         return planeRepository.save(plane);
     }
+
+    public void deleteAllPlanes(){
+
+        planeRepository.deleteAll();
+    }
 }
