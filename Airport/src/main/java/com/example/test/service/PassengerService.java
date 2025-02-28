@@ -34,4 +34,9 @@ public class PassengerService {
 
         return passengerRepository.save(passenger);
     }
+
+    public void deleteAllPlanes(){
+
+        passengerRepository.deleteAll();
+    }
 }
