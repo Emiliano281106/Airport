@@ -33,4 +33,9 @@ public class AirportService {
         airportRepository.deleteById(Id);
 
     }
+
+    public void deleteAllAirports(){
+
+        airportRepository.deleteAll();
+    }
 }
